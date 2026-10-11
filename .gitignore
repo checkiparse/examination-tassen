@@ -1,0 +1,15 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Local temporary files
+*.log
+*.tmp
+
+# Node / package manager if ever added later
+node_modules/
+dist/
