@@ -266,6 +266,99 @@ main.container .hundmain-img {
     font-size: 1.25rem;
 }
 
+.booking-section {
+    grid-column: 1 / -1;
+    max-width: 800px;
+    width: 100%;
+    justify-self: center;
+    box-sizing: border-box;
+    padding: 28px;
+    color: #fff;
+    font-family: Helvetica, sans-serif;
+    background: #0c5729;
+    border-radius: 10px;
+}
+
+.booking-section h3,
+.booking-section h4 {
+    margin: 0 0 12px;
+}
+
+#booking-form {
+    display: grid;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.booking-field {
+    display: grid;
+    gap: 6px;
+}
+
+.booking-field input,
+.booking-field select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font: inherit;
+}
+
+#booking-form button,
+.booking-request button {
+    justify-self: start;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: #23bb95;
+    color: #07391d;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#booking-message:empty {
+    display: none;
+}
+
+#booking-message {
+    margin: 12px 0;
+}
+
+#booking-message.is-error {
+    color: #ffd0d0;
+}
+
+#booking-message.is-success {
+    color: #9cffb5;
+}
+
+#booking-list {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.booking-request {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+}
+
+.booking-request p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.booking-request button {
+    flex: 0 0 auto;
+}
+
 .about-section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 500px));
@@ -387,6 +480,15 @@ main.container .hundmain-img {
 
     .contact-card {
         padding: 24px;
+    }
+
+    .booking-section {
+        padding: 20px;
+    }
+
+    .booking-request {
+        align-items: flex-start;
+        flex-direction: column;
     }
     
 }
