@@ -74,6 +74,35 @@
             <img class="hamtning" src="images-folder/hamtning.jpg" alt="Hämtning av hund">
             <p>Hämtning och lämning - 150 kr</p>
         </div>
+        <div class="booking-section">
+            <h3>Bokningsförfrågan</h3>
+            <p>Din förfrågan sparas i din webbläsare, vi ringer upp dig.</p>
+            <form id="booking-form" novalidate>
+                <div class="booking-field">
+                    <label for="dog-name">Hundens namn</label>
+                    <input id="dog-name" name="dogName" type="text" autocomplete="off" required>
+                </div>
+                <div class="booking-field">
+                    <label for="booking-date">Önskat datum</label>
+                    <input id="booking-date" name="date" type="date" required>
+                </div>
+                <div class="booking-field">
+                    <label for="booking-service">Önskad tjänst</label>
+                    <select id="booking-service" name="service" required>
+                        <option value="">Välj en tjänst</option>
+                        <option value="Hunddagis – halvdag">Hunddagis – halvdag</option>
+                        <option value="Hunddagis – heldag">Hunddagis – heldag</option>
+                        <option value="Hundpensionat per natt">Hundpensionat per natt</option>
+                        <option value="Klippkort 10 dagar">Klippkort 10 dagar</option>
+                        <option value="Hämtning och lämning">Hämtning och lämning</option>
+                    </select>
+                </div>
+                <button type="submit">Skicka förfrågan</button>
+            </form>
+            <p id="booking-message" role="status" aria-live="polite"></p>
+            <h4>Dina förfrågningar</h4>
+            <ul id="booking-list" aria-live="polite"></ul>
+        </div>
     </section>
 
 
