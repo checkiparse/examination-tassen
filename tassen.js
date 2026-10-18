@@ -3,6 +3,15 @@
 const contentSections = document.querySelectorAll(".content-area > main, .content-area > section[id]");
 const sectionLinks = document.querySelectorAll('a[href="#hem"], a[href="#tjanster"], a[href="#om-oss"], a[href="#kontakt"]');
 const servicesNavLink = document.querySelector('.navbar-nav a[href="#tjanster"]');
+const requestedSection = document.getElementById(window.location.hash.slice(1));
+const initialSection = [...contentSections].includes(requestedSection)
+    ? requestedSection
+    : document.getElementById("hem");
+
+contentSections.forEach((section) => {
+    section.hidden = section !== initialSection;
+});
+servicesNavLink.setAttribute("aria-expanded", String(initialSection.id === "tjanster"));
 
 sectionLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -63,6 +72,55 @@ function updateCurrentTime() {
 
 updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
+
+/* kundomdömen */
+
+const reviews = [
+    {
+        text: "Vår hund kommer alltidhem glad och nöjd efter en dag hos Tassen!",
+        author: "Annika"
+    },
+    {
+        text: "Jättefint bemötande och omtänksam personal. Väldigt fint område!",
+        author: "David"
+    },
+    {
+        text: "En härlig plats för hundar!",
+        author: "Sara"
+    },
+    {
+        text: "Gör vardagen mycket enklare för hela familjen.",
+        author: "Erik"
+    },
+    {
+        text: "Personalen tog sig tid att lära känna vår hund. Vi uppskattar verkligen den personliga omsorgen.",
+        author: "Lina"
+    }
+];
+const reviewList = document.getElementById("review-list");
+
+reviews.forEach((review) => {
+    const card = document.createElement("figure");
+    const quote = document.createElement("blockquote");
+    const rating = document.createElement("img");
+    const author = document.createElement("figcaption");
+
+    card.className = "review-card";
+    quote.textContent = `“${review.text}”`;
+    rating.className = "review-rating";
+    rating.src = "images-folder/5-stars.png";
+    rating.alt = "5 av 5 stjärnor";
+    author.textContent = `— ${review.author}`;
+    const authorRow = document.createElement("div");
+    const facebookIcon = document.createElement("img");
+    authorRow.className = "review-author";
+    facebookIcon.className = "review-author-icon";
+    facebookIcon.src = "images-folder/facebook1.png";
+    facebookIcon.alt = "Facebook";
+    authorRow.append(author, facebookIcon);
+    card.append(quote, rating, authorRow);
+    reviewList.append(card);
+});
 
 /*bokningsförfrågningar*/
 
