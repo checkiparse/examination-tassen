@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hundpensionatet Tassen</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="tassen.js" defer></script>
 </head>
 <body>
     <div class="page">
         <header class="site-header">
             <img class="logo-img" src="images-folder/logoo1.png" alt="Logo">
-            <h1>Tassen</h1>
+            <h1><a href="#hem">Tassen</a></h1>
             <nav class="navbar">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#">Hem</a></li>
+                    <li class="nav-item"><a href="#hem">Hem</a></li>
                     <li class="nav-item"><a href="#om-oss">Om Oss</a></li>
-                    <li class="nav-item"><a href="#tjanster">Tjänster</a></li>
+                    <li class="nav-item"><a href="#tjanster" aria-controls="tjanster" aria-expanded="false">Tjänster</a></li>
                     <li class="nav-item"><a href="#kontakt">Kontakta oss</a></li>
                 </ul>
             </nav>
@@ -25,7 +26,7 @@
 <!-- Dashboard -->
 
 <div class="content-area">
-    <main class="container">
+    <main id="hem" class="container">
         <h2>Tassen - Hundpensionatet för alla hundar</h2>
         <p class="hero-tagline">Hunddagis nära dig i Stockholm</p>
         <p class="hero-description">Letar du efter en bra plats för din hund under dagen eller en trygg plats att lämna din hund när du är borta? <a href="#tjanster">Se våra tjänster</a></p>
@@ -36,6 +37,11 @@
                 <li>Lördag: 08:00 - 14:00</li>
                 <li>Söndag: Stängt</li>
             </ul>
+            <div class="current-time">
+                <p>Aktuell tid: <time id="current-time">--:--:--</time></p>
+                <p id="current-date"></p>
+                <p id="open-status" role="status" aria-live="polite"></p>
+            </div>
         </section>
         <div class="map">
             <iframe
@@ -50,7 +56,7 @@
 
 
     <!-- Tjänster-sektion -->
-    <section id="tjanster" class="services-section">
+    <section id="tjanster" class="services-section" hidden>
         <h2>Våra Tjänster</h2>
         <div class="service-item">
             <img class="hunddagis-img" src="images-folder/hunddagis.jpg" alt="Hunddagis">
@@ -104,6 +110,7 @@
         </div>
     </section>
 </div>
+    </div>
   <footer>
     <p><a href="mailto:kontakt@tassen.se">kontakt@tassen.se</a></p>
     <p><a href="tel:+46812345678">08-123 456 78</a></p>

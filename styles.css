@@ -1,4 +1,7 @@
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #0c5729;
@@ -20,14 +23,34 @@ body {
     line-height: 1;
 }
 
+.site-header h1 a {
+    color: inherit;
+    text-decoration: none;
+}
+
 
 .page {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    flex: 1;
     padding: 20px;
-    min-height: 100vh;
     box-sizing: border-box;
+}
+
+body > footer {
+    align-self: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto;
+    padding: 8px 20px;
+    background: #0c5729;
+    color: #fff;
+    text-align: left;
+}
+
+body > footer a {
+    color: #fff;
 }
 
 .site-header {
@@ -169,6 +192,33 @@ main.container .opening-hours li + li {
     margin-top: 16px;
 }
 
+main.container .current-time {
+    margin-top: 20px;
+    font-size: 1.15rem;
+}
+
+main.container .current-time p {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    margin: 8px 0 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+main.container #open-status {
+    font-weight: 700;
+}
+
+main.container #open-status.is-open {
+    color: #9cffb5;
+}
+
+main.container #open-status.is-closed {
+    color: #ffd0d0;
+}
+
 main.container .hundmain-img {
     display: block;
     width: 100%;
@@ -188,8 +238,13 @@ main.container .hundmain-img {
     column-gap: 16px;
     row-gap: 180px;
     padding: 32px 20px;
+    background-color: #16723b;
     color: #fff;
     font-family: "SuperFrosting", sans-serif;
+}
+
+.content-area > [hidden] {
+    display: none;
 }
 
 .services-section h2 {
@@ -212,8 +267,8 @@ main.container .hundmain-img {
 }
 
 .about-section {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 500px));
     justify-content: center;
     column-gap: 120px;
     row-gap: 16px;
@@ -224,7 +279,7 @@ main.container .hundmain-img {
 }
 
 .about-section h2 {
-    flex-basis: 100%;
+    grid-column: 1 / -1;
     margin: 0;
     font-size: 2rem;
     text-align: left;
@@ -255,10 +310,10 @@ main.container .hundmain-img {
 }
 
 .about-description {
-    flex-basis: 100%;
-    max-width: 1120px;
+    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
     margin: 48px 0 0;
-    margin-inline: auto;
     font-family: Helvetica, sans-serif;
     font-size: 1.25rem;
     line-height: 1.6;
@@ -266,7 +321,7 @@ main.container .hundmain-img {
 
 .contact-section {
     padding: 56px 20px;
-    background: #0c5729;
+    background: #16723b;
     color: #fff;
     font-family: Helvetica, sans-serif;
 }
@@ -318,6 +373,16 @@ main.container .hundmain-img {
     .services-section {
         grid-template-columns: 1fr;
         row-gap: 32px;
+    }
+
+    .about-section {
+        grid-template-columns: minmax(0, 500px);
+        row-gap: 16px;
+    }
+
+    .about-section h2,
+    .about-description {
+        grid-column: 1;
     }
 
     .contact-card {
