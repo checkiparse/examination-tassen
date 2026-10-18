@@ -212,22 +212,56 @@ main.container .hundmain-img {
 }
 
 .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 120px;
+    row-gap: 16px;
     padding: 32px 20px;
+    background-color: #16723b;
     color: #fff;
-    font-family: Helvetica, sans-serif;
+    font-family: "SuperFrosting", sans-serif;
 }
 
 .about-section h2 {
+    flex-basis: 100%;
     margin: 0;
     font-size: 2rem;
+    text-align: left;
+}
+
+.about-person {
+    flex: 0 1 500px;
+    margin-top: 98px;
 }
 
 .about-section img {
-    width: 180px;
-    height: 180px;
-    margin: 16px 16px 0 0;
+    width: 500px;
+    height: 500px;
+    max-width: 100%;
+    margin: 0;
     object-fit: cover;
-    vertical-align: top;
+}
+
+.about-person img {
+    display: block;
+    width: 100%;
+}
+
+.about-person p {
+    margin: 12px 0 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.about-description {
+    flex-basis: 100%;
+    max-width: 1120px;
+    margin: 48px 0 0;
+    margin-inline: auto;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 600px) {
