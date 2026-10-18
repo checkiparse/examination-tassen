@@ -136,6 +136,10 @@ main.container .hero-description {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
+main.container .hero-description a {
+    color: #fff;
+}
+
 main.container .opening-hours {
     position: absolute;
     top: 400px;
@@ -205,6 +209,25 @@ main.container .hundmain-img {
     margin: 12px 0 0;
     color: #fff;
     font-size: 1.25rem;
+}
+
+.about-section {
+    padding: 32px 20px;
+    color: #fff;
+    font-family: Helvetica, sans-serif;
+}
+
+.about-section h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.about-section img {
+    width: 180px;
+    height: 180px;
+    margin: 16px 16px 0 0;
+    object-fit: cover;
+    vertical-align: top;
 }
 
 @media (max-width: 600px) {
