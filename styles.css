@@ -111,7 +111,7 @@ main.container h2 {
     text-shadow: 4px 3px 4px rgba(0, 0, 0, 0.8);
 }
 
-main.container p {
+main.container .hero-tagline {
     position: absolute;
     top: 240px;
     left: 20px;
@@ -121,6 +121,48 @@ main.container p {
     font-family: Helvetica, sans-serif;
     color: #fff;
     text-shadow: 4px 3px 4px rgba(0, 0, 0, 0.8);
+}
+
+main.container .hero-description {
+    position: absolute;
+    top: 310px;
+    left: 20px;
+    z-index: 1;
+    max-width: 620px;
+    margin: 0;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+main.container .opening-hours {
+    position: absolute;
+    top: 400px;
+    left: 20px;
+    z-index: 1;
+    color: #fff;
+    font-size: 1.4rem;
+    padding: 28px 34px;
+    background: rgba(5, 45, 22, 0.88);
+    border-left: 7px solid #23bb95;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+main.container .opening-hours h3 {
+    margin: 0 0 16px;
+    font-size: 2.4rem;
+}
+
+main.container .opening-hours ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+main.container .opening-hours li + li {
+    margin-top: 16px;
 }
 
 main.container .hundmain-img {
@@ -133,14 +175,17 @@ main.container .hundmain-img {
     filter: brightness(60%);
 }
 
+/* Tjänster-sektion */
+
 .services-section {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 28px;
-    row-gap: 140px;
+    grid-template-columns: repeat(2, minmax(0, 560px));
+    justify-content: center;
+    column-gap: 16px;
+    row-gap: 180px;
     padding: 32px 20px;
     color: #fff;
-    font-family: Helvetica, sans-serif;
+    font-family: "SuperFrosting", sans-serif;
 }
 
 .services-section h2 {
@@ -152,15 +197,48 @@ main.container .hundmain-img {
 .services-section img {
     display: block;
     width: 100%;
-    max-width: 560px;
     height: 360px;
-    justify-self: center;
     object-fit: cover;
+}
+
+.service-item p {
+    margin: 12px 0 0;
+    color: #fff;
+    font-size: 1.25rem;
 }
 
 @media (max-width: 600px) {
     .services-section {
         grid-template-columns: 1fr;
         row-gap: 32px;
+    }
+    
+}
+.map {
+    position: absolute;
+    top: 50%;
+    right: 4%;
+    z-index: 2;
+    width: min(38%, 500px);
+    height: 420px;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 700px) {
+    .map {
+        top: auto;
+        right: 4%;
+        bottom: 24px;
+        width: 42%;
+        height: 260px;
+        transform: none;
     }
 }
