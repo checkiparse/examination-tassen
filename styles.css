@@ -264,10 +264,64 @@ main.container .hundmain-img {
     line-height: 1.6;
 }
 
+.contact-section {
+    padding: 56px 20px;
+    background: #0c5729;
+    color: #fff;
+    font-family: Helvetica, sans-serif;
+}
+
+.contact-card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 36px;
+    border-left: 7px solid #23bb95;
+    border-radius: 10px;
+    background: #16723b;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.contact-card h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.contact-intro {
+    margin: 12px 0 24px;
+    font-size: 1.15rem;
+}
+
+.contact-details {
+    display: grid;
+    gap: 12px;
+}
+
+.contact-details p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.contact-details a {
+    color: #fff;
+    text-underline-offset: 3px;
+}
+
+.contact-details img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    vertical-align: middle;
+    background: transparent;
+}
+
 @media (max-width: 600px) {
     .services-section {
         grid-template-columns: 1fr;
         row-gap: 32px;
+    }
+
+    .contact-card {
+        padding: 24px;
     }
     
 }
