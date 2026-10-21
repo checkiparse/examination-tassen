@@ -124,6 +124,25 @@ reviews.forEach((review) => {
 
 /*bokningsförfrågningar*/
 
+class BookingRequest {
+    constructor(dogName, date, service, id = `${Date.now()}-${Math.random().toString(36).slice(2)}`) {
+        this.id = id;
+        this.dogName = dogName;
+        this.date = date;
+        this.service = service;
+    }
+
+    getDetails() {
+        const formattedDate = new Intl.DateTimeFormat("sv-SE", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }).format(new Date(`${this.date}T00:00:00`));
+
+        return `${this.service || "Tjänst ej angiven"} – ${this.dogName} – ${formattedDate}`;
+    }
+}
+
 const bookingStorageKey = "tassen-booking-requests";
 const bookingForm = document.getElementById("booking-form");
 const bookingList = document.getElementById("booking-list");
@@ -159,15 +178,13 @@ function renderBookingRequests() {
         const item = document.createElement("li");
         const details = document.createElement("p");
         const cancelButton = document.createElement("button");
-        const date = new Date(`${request.date}T00:00:00`);
-
         item.className = "booking-request";
-        const service = request.service || "Tjänst ej angiven";
-        details.textContent = `${service} – ${request.dogName} – ${new Intl.DateTimeFormat("sv-SE", {
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-        }).format(date)}`;
+        details.textContent = new BookingRequest(
+            request.dogName,
+            request.date,
+            request.service,
+            request.id
+        ).getDetails();
         cancelButton.type = "button";
         cancelButton.textContent = "Avboka";
         cancelButton.addEventListener("click", () => {
@@ -215,12 +232,7 @@ bookingForm.addEventListener("submit", (event) => {
         return;
     }
 
-    bookingRequests.push({
-        id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-        dogName,
-        date,
-        service
-    });
+    bookingRequests.push(new BookingRequest(dogName, date, service));
 
     if (saveBookingRequests()) {
         showBookingMessage("Din förfrågan har sparats i den här webbläsaren.", "success");

@@ -346,6 +346,10 @@ main.container .reviews-section {
     font-size: 1.25rem;
 }
 
+.service-item .service-description {
+    font-size: 1rem;
+}
+
 .booking-section {
     grid-column: 1 / -1;
     max-width: 800px;
